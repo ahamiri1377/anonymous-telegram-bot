@@ -1,10 +1,6 @@
 import os
 
 
-print("===== ENV TEST =====")
-print("BOT_TOKEN in environment:", "BOT_TOKEN" in os.environ)
-print("Environment variables:", list(os.environ.keys()))
-
 from dotenv import load_dotenv
 
 from telegram import ReplyKeyboardMarkup
