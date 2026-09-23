@@ -1,14 +1,15 @@
 import sqlite3
 import secrets
+import os
 
-DB_NAME = "bot.db"
-
+DB_NAME = os.path.join("data", "bot.db")
 
 def get_connection():
     return sqlite3.connect(DB_NAME)
 
 
 def init_db():
+    os.makedirs("data", exist_ok=True)
     conn = get_connection()
     cursor = conn.cursor()
 
