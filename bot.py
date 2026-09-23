@@ -46,12 +46,6 @@ import secrets
 
 active_chats = {}
 
-load_dotenv()
-
-TOKEN = os.getenv("BOT_TOKEN")
-
-if not TOKEN:
-    raise RuntimeError("BOT_TOKEN is not set")
     
 
 # =====================================
@@ -828,8 +822,16 @@ def get_block_count(user_id):
 def main():
 
     init_db()
-
     
+    load_dotenv()
+    
+    TOKEN = os.getenv("BOT_TOKEN")
+    
+    print("BOT_TOKEN exists:", bool(TOKEN))
+    
+    if not TOKEN:
+        raise RuntimeError("BOT_TOKEN is not set")
+
     application = (
         Application
         .builder()
