@@ -46,6 +46,13 @@ import secrets
 
 active_chats = {}
 
+load_dotenv()
+
+TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    raise RuntimeError("BOT_TOKEN is not set")
+    
 
 # =====================================
 # NEW MESSAGE BUTTON
@@ -822,10 +829,6 @@ def main():
 
     init_db()
 
-    load_dotenv()
-    TOKEN = os.getenv("BOT_TOKEN")
-    if not TOKEN:
-        raise RuntimeError("BOT_TOKEN is not set")
     
     application = (
         Application
